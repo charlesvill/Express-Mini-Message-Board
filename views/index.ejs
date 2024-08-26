@@ -6,11 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <%- greeting %>
-    <ul>
-        <% messages.map((message) => { %>
-            <li><%= message.content  %></li>
-        <% }) %>
-    </ul>
+    <%- include('navbar') %>
+    <%- include(contentView, { params: params }) %>
+    <%- include('footer') %>
+    <% console.log(params) %>
 </body>
 </html>
