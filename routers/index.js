@@ -2,33 +2,50 @@ const { Router } = require("express");
 
 const indexRouter = Router();
 const addRouter = require("./add");
+const { v4: uuidv4 } = require('uuid');
 
-const messages = [{ content: "This is a test message 0" }, { content: "This is a test message 2" }];
+const messages = [
+];
 
-indexRouter.use("/add", (req, res) => {
-  contentView = "add";
-  res.render("index", {
-    contentView: contentView,
-    params: null
+
+indexRouter.use("/add", addRouter);
+
+indexRouter.post("/add", (req, res) => {
+  const userName = req.body.username;
+  const message = req.body.textarea;
+
+  messages.push({
+    user: userName,
+    content: message,
+    added: new Date(),
+    messageId: uuidv4()
   });
+  res.redirect("/");
 });
 
 indexRouter.get("/:messageID", (req, res) => {
+  console.dir(req);
   const { messageID } = req.params;
+  const found = messages.find((element) => element.messageId === messageID);
+  if (!found) {
+    res.render("404");
+    return;
+  }
   const contentView = "message";
   res.render("index", {
     contentView: contentView,
-    params: { messageID: messageID }
+    params: { message: found }
   });
 });
 
 indexRouter.get("/", (req, res) => {
-  contentView = "all";
+  const contentView = "all";
   res.render("index", {
     contentView: contentView,
     params: { messages: messages }
   });
 });
+
 
 
 

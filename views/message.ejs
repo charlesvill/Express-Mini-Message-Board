@@ -1,3 +1,14 @@
 <div>
-    greetings from messageid <%=params.messageID %>
+    <p>
+        <%= params.message.content %>
+    </p>
+    <div>
+        <%= params.message.userName %>
+    </div>
+    <div>
+        <%= params.message.added%>
+    </div>
+    <form action="/">
+        <button type"submit">Home</button>
+    </form>
 </div>

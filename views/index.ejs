@@ -7,8 +7,9 @@
 </head>
 <body>
     <%- include('navbar') %>
-    <%- include(contentView, { params: params }) %>
+    <main>
+        <%- include(contentView, { params: params }) %>
+    </main>
     <%- include('footer') %>
-    <% console.log(params) %>
 </body>
 </html>
