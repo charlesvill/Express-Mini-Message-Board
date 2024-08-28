@@ -4,7 +4,9 @@ const path = require("node:path");
 const app = express();
 
 const indexRouter = require("./routers/index");
-
+// below is for loading static css sheets linked 
+const assetsPath = path.join(__dirname, "public");
+app.use(express.static(assetsPath));
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");

@@ -1,14 +1,16 @@
-<div>
-    <p>
-        <%= params.message.content %>
-    </p>
-    <div>
-        <%= params.message.userName %>
+<div class="msgCollection">
+    <div class="msgCont">
+        <p>
+            <%= params.message.content %>
+        </p>
+        <div>
+            <%= params.message.user%>
+        </div>
+        <div>
+            <%= params.message.added%>
+        </div>
+        <form action="/">
+            <button type"submit">Home</button>
+        </form>
     </div>
-    <div>
-        <%= params.message.added%>
-    </div>
-    <form action="/">
-        <button type"submit">Home</button>
-    </form>
 </div>

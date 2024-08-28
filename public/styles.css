@@ -1,0 +1,125 @@
+:root {
+  --foreground: #FFFFFF;
+  --contentBody: #F6F0E7;
+  --nuetral: #6D6F73;
+  --messagebody: #AAD6A0;
+  --darkcontrast: #65463E;
+  --lightaccent: #D9C6BF;
+ font-family: 'Courier New', monospace;
+
+}
+body {
+  margin: 0;
+  background-color: var(--foreground);
+}
+nav, footer {
+  background-color: var(--lightaccent);
+  display:flex;
+  flex-direction: row;
+}
+nav {
+  margin: inherit;
+  justify-content: space-between;
+  padding-left: .3em;
+}
+.postBtn.Cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+}
+.postBtn {
+  background-color: var(--darkcontrast);
+  color: var(--contentBody);
+  border: none;
+  border-radius: 8px;
+  padding: .3em;
+  font-family: inherit;
+  font-weight: bold;
+}
+.postBtn:hover {
+  background-color: var(--nuetral);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+main {
+  height: 100vh;
+
+  margin: 0 auto;
+  width: clamp(380px, 80%, 1200px);
+  background-color: var(--contentBody);
+}
+.msgCollection{
+  padding: 2rem;
+}
+ul {
+  margin: 0 auto;
+  padding: 1em;
+  text-indent: 0;
+  list-style-type: none;
+  background-color: var(--foreground);
+  border-radius: 9px;
+  height: auto;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+ul > li {
+  display: flex;
+}
+.msgCont {
+  background-color: var(--messagebody);
+  margin: 1rem ;
+  padding: 1em;
+  border-radius: 10px;
+  width: 70%;
+  height: auto;
+}
+.textCont {
+  text-align: center;
+}
+.msgCont > form > button {
+  opacity: 0;
+}
+.msgCont:hover > form > button {
+  opacity: 1;
+}
+
+p {
+  margin: 0;
+}
+footer {
+  color: black;
+  padding: 1em;
+}
+
+.footerCont {
+  width: clamp(500px, 100%, 1280px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.linksCont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ghLogo {
+  width: 1em;
+}
+
+.msgCollection > form {
+  background-color: var(--foreground);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  padding: 1rem;
+}
+

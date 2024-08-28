@@ -1,15 +1,21 @@
-<ul>
-    <% console.log(params) %>
-    <% params.messages.map((message) => { %>
-        <li><%= message.content  %>
-            <form action=<%=message.messageId%>>
-                <button type="submit">details</button>
-            </form>
-        </li>
-    <% }) %>
-</ul>
-<div>
-    <form action="/add">
-        <button>Post message</button>
-    </form>
+<div class="msgCollection">
+    <ul>
+        <% console.log(params) %>
+        <% params.messages.map((message) => { %>
+            <li>
+                <div class="msgCont all">
+                    <div class="textCont all">
+                        <p><%= message.content  %></p>
+                    </div>
+                    <div class="userCont all">
+                        <%= message.user %>
+                    </div>
+                    <form action=<%=message.messageId%>>
+                        <button type="submit">details</button>
+                    </form>
+                </div>
+            </li>
+        <% }) %>
+    </ul>
 </div>
+
