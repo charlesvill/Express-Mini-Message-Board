@@ -3,7 +3,9 @@ const pool = require("./pool.js");
 
 // getAllMessages
 async function getAllMessages() {
+  console.log("here we go");
   const { rows } = await pool.query("SELECT * FROM messages");
+  console.log(rows);
   return rows;
 }
 // insertMessage
