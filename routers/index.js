@@ -1,7 +1,9 @@
+require('dotenv').config();
 const { Router } = require("express");
 
 const indexRouter = Router();
 const addRouter = require("./add");
+const controller = require("../controllers/controller");
 const { v4: uuidv4 } = require('uuid');
 
 
@@ -41,7 +43,6 @@ indexRouter.post("/add", (req, res) => {
 });
 
 indexRouter.get("/:messageID", (req, res) => {
-  console.dir(req);
   const { messageID } = req.params;
   const found = messages.find((element) => element.messageId === messageID);
   if (!found) {
@@ -56,11 +57,7 @@ indexRouter.get("/:messageID", (req, res) => {
 });
 
 indexRouter.get("/", (req, res) => {
-  const contentView = "all";
-  res.render("index", {
-    contentView: contentView,
-    params: { messages: messages }
-  });
+  controller.getMessages(req, res);
 });
 
 
