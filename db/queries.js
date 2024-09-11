@@ -8,6 +8,10 @@ async function getAllMessages() {
   console.log(rows);
   return rows;
 }
+async function getMessageById(id) {
+  const { rows } = await pool.query("SELECT * FROM messages WHERE id = ($1)", [id]);
+  return rows;
+}
 // insertMessage
 async function insertMessage(message) {
   await pool.query("INSERT INTO messages (name, content, time) VALUES ($3)", [message.name, message.content, message.time]);
@@ -19,6 +23,7 @@ async function deleteMessage(message) {
 
 module.exports = {
   getAllMessages,
+  getMessageById,
   insertMessage,
   deleteMessage
 };

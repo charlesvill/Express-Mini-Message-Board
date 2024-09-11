@@ -21,20 +21,10 @@ const { v4: uuidv4 } = require('uuid');
 //  });
 //  res.redirect("/");
 //});
-//
-//indexRouter.get("/:messageID", (req, res) => {
-//  const { messageID } = req.params;
-//  const found = messages.find((element) => element.messageId === messageID);
-//  if (!found) {
-//    res.render("404");
-//    return;
-//  }
-//  const contentView = "message";
-//  res.render("index", {
-//    contentView: contentView,
-//    params: { message: found }
-//  });
-//});
+
+indexRouter.get("/:messageID", (req, res) => {
+  controller.getMessageDetails(req, res);
+});
 
 indexRouter.get("/", (req, res) => {
   controller.getMessages(req, res);

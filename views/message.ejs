@@ -1,13 +1,14 @@
 <div class="msgCollection">
     <div class="msgCont">
         <p>
+        <%- console.log(params) %>
             <%= params.message.content %>
         </p>
         <div>
-            <%= params.message.user%>
+            <%= params.message.name%>
         </div>
         <div>
-            <%= params.message.added%>
+            <%= params.message.time%>
         </div>
         <form action="/">
             <button type"submit">Home</button>

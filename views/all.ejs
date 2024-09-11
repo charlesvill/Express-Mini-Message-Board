@@ -8,9 +8,9 @@
                         <p><%= message.content  %></p>
                     </div>
                     <div class="userCont all">
-                        <%= message.user %>
+                        <%= message.name%>
                     </div>
-                    <form action=<%=message.messageId%>>
+                    <form action=<%=message.id%> method="GET">
                         <button type="submit">details</button>
                     </form>
                 </div>
