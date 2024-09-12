@@ -25,7 +25,29 @@ async function getMessageDetails(req, res) {
   });
 }
 
+async function pushNewMessage(req, res) {
+  const name = req.body.name;
+  const message = req.body.content;
+  const time = new Date().toLocaleString();
+
+  await db.insertMessage({
+    name: name,
+    content: message,
+    time: time
+  });
+  res.redirect("/");
+}
+
+async function deleteMessage(req, res) {
+  const { messageID }  = req.params;
+  console.log("message to be removed is: ", messageID);
+  db.deleteMessageById(messageID);
+  res.redirect("/");
+}
+
 module.exports = {
   getMessages,
   getMessageDetails,
+  pushNewMessage, 
+  deleteMessage
 };

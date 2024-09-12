@@ -7,20 +7,11 @@ const controller = require("../controllers/controller");
 const { v4: uuidv4 } = require('uuid');
 
 
-//indexRouter.use("/add", addRouter);
-//
-//indexRouter.post("/add", (req, res) => {
-//  const userName = req.body.username;
-//  const message = req.body.textarea;
-//
-//  messages.push({
-//    user: userName,
-//    content: message,
-//    added: new Date(),
-//    messageId: uuidv4().substring(0, 5)
-//  });
-//  res.redirect("/");
-//});
+indexRouter.use("/add", addRouter);
+
+indexRouter.post("/add", (req, res) => {
+  controller.pushNewMessage(req, res);
+});
 
 indexRouter.get("/:messageID", (req, res) => {
   controller.getMessageDetails(req, res);
@@ -30,6 +21,9 @@ indexRouter.get("/", (req, res) => {
   controller.getMessages(req, res);
 });
 
+indexRouter.get("/delete/:messageID", (req, res) => {
+  controller.deleteMessage(req, res);
+});
 
 
 

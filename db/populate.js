@@ -9,16 +9,13 @@ CREATE TABLE IF NOT EXISTS messages (
   content VARCHAR (255),
   time VARCHAR (30)
 );
-
-INSERT INTO messages (name, content, time) VALUES
-  ('borat', 'hello world', '10:30pm');
 `;
 
 async function main() {
   console.log("seeding...");
 
   const client = new Client({
-    connectionString: process.env.DB_CONNECTION_STRING 
+    connectionString: process.env.DB_CONNECTION_STRING
   });
   await client.connect();
   await client.query(SQL);
